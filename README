@@ -1,0 +1,7 @@
+ThreeGee Test
+
+This was a simple application I wrote to narrow down a bug in the 5.0 Version of the Danger OS relating to Data connectivity and a "Fake G" situation where the device would appear to have a data connection, but in fact didn't.
+
+It was discovered that if packets were sent every approximately 13 minutes, the connection would stay alive.
+
+I've heard that this app was used internally at Danger, but can't confirm.

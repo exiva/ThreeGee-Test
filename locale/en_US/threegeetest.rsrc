@@ -1,0 +1,79 @@
+﻿package "net.exiva.threegeetest"
+
+interface "{source}net/exiva/threegeetest/Resources.java"
+events "{source}net/exiva/threegeetest/Commands.java"
+
+#
+## Application Strings
+#
+string ID_APP_NAME "ThreeGee Test App"
+string ID_APP_CLASS "net.exiva.threegeetest.threegeetest"
+string ID_VERSION "v@APP_VERSION_MAJOR@.@APP_VERSION_MINOR@/@APP_VERSION_BUILD@"
+string ID_LOCALE "en_US"
+string ID_APP_FLAGS "LC"
+
+#
+## Text Strings
+#
+string kRsrc_AppTitle "ThreeGee Test App"
+
+#
+## Main Menu
+#
+menu ID_MAIN_MENU
+	menuItem
+		title = "Mail Log"
+		event = EVENT_MAIL
+		shortcut = 'm'
+	menuItem
+		title = "Clear Log"
+		event = EVENT_CLEAR
+		shortcut = 'c'
+endMenu
+
+#
+## Main Screen
+#
+screen ID_MAIN_SCREEN
+	title = kRsrc_AppTitle
+	className = "net.exiva.threegeetest.threegeetestView"
+	actionMenu = ID_MAIN_MENU
+	backgroundColor = defaultPaneColor
+	fullScreen
+	showMarqueeOverFullScreen
+	staticText
+		id = ID_TEXT
+		text = "[1]: Left Device [2]: Arrived to Server [3]: Arrived to Device"
+		justifyLeft
+		# positionBelow= ID_LIST : 3
+		left = 5
+		alignWithParentBottom = 5
+		transparent
+	listView
+		id = ID_LIST
+		positionAbove= ID_TEXT : 3
+		fillToRight = 5
+		fillToTop = 5
+		initialFocus
+		hasScrollBar
+	endListView
+endScreen
+
+#
+## Splash Screen
+#
+splashScreen ID_SPLASH_SCREEN_RESOURCE
+@ IF {screen} = wqvga
+wqvgaSplashScreen
+@ ELSEIF {screen} = qvga
+qvgaSplashScreen
+@ ENDIF
+	staticTextBox
+		text = ID_APP_NAME
+		id = ID_APP
+		alignWithParentLeft = 2
+		alignWithParentTop = 0
+		fillToRight = 2
+		transparent
+		doesNotHaveBorder
+endSplashScreen
